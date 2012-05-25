@@ -25,7 +25,8 @@ Installation
     git clone git://github.com/algorgeous/SugarCRM-CAS.git modules/Users/authentication/CASAuthenticate
 
 2. Edit the config.php file
-Add a key for authenticationClass that is set to CASAuthenticate.
+
+   Add a key for authenticationClass that is set to CASAuthenticate.
 
 <pre>
   'authenticationClass' => 'CASAuthenticate',
