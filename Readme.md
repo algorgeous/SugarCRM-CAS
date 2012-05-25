@@ -27,11 +27,14 @@ git clone git://github.com/algorgeous/SugarCRM-CAS.git modules/Users/authenticat
 2. Edit the config.php file
 Add a key for authenticationClass that is set to CASAuthenticate.
 
+<pre>
   'authenticationClass' => 'CASAuthenticate',
+</pre>
 
 Add a 'cas' key to the $sugar_config array that is an array holding the values for
 your CAS server.
 
+<pre>
   'cas' => array(
     'library' => '/path/to/CAS/CAS.php',
     'hostname' => 'cas.example.com',
@@ -39,3 +42,4 @@ your CAS server.
     'uri' => 'cas',
     'changeSessionID' => FALSE,
   ),
+</pre>
