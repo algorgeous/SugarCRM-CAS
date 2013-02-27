@@ -26,6 +26,7 @@ class CASAuthenticate extends SugarAuthenticate
 
     function doCASAuth()
     {
+        global $sugar_config;
         @session_start();
 
         // Don't try to login if the user is logging out
