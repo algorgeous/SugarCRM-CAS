@@ -42,8 +42,8 @@ class CASAuthenticate extends SugarAuthenticate
               parent::postLoginAuthenticate();
               header('Location: ' . $sugar_config['site_url']);
             } else {
-
-            die(); //I should redirect here.  I'm not sure on the syntax -- sorry.
+                echo "Unable to log into SugarCRM. Please contact an administrator for assistance.";
+                die(); //I should redirect here.  I'm not sure on the syntax -- sorry.
             } //end nested else.
         } // end top else.
     } //end doCASAuth()

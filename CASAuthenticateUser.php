@@ -47,15 +47,17 @@ class CASAuthenticateUser extends SugarAuthenticateUser {
         {
             $user_name = phpCAS::getUser();
 
-	    $dbresult = $GLOBALS['db']->query("SELECT id, status FROM users WHERE user_name='" . $user_name . "' AND deleted = 0");			
+	    $dbresult = $GLOBALS['db']->query("SELECT id, status FROM users WHERE user_name='" . $user_name . "' AND deleted = 0");
             //user already exists use this oe
             if($row = $GLOBALS['db']->fetchByAssoc($dbresult)){
                 if($row['status'] != 'Inactive')
                     return $this->loadUserOnSession($row['id']);
-                else
+                else {
+                    echo "Your SugarCRM user account is currently Inactive. Please contact an administrator to have your account activated.<br><br>";
                     return '';
+                }
             }
-       	    echo 'Not authorized user. You may need to ask an administrator to give you access to SugarCRM. You may try logging in again <a href="https://' . $sugar_config['cas']['hostname'] . ':443/cas/logout?service=http://' . $_SERVER['SERVER_NAME'] . '">here</a>';
+       	    echo 'Not authorized user. You may need to ask an administrator to give you access to SugarCRM. You may try logging in again <a href="https://' . $sugar_config['cas']['hostname'] . ':443/cas/logout?service=' . $sugar_config['site_url'] . '">here</a>';
 	    die();
             return ""; // SSO authentication was successful
         }
