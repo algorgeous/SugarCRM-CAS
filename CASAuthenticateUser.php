@@ -37,7 +37,7 @@ class CASAuthenticateUser extends SugarAuthenticateUser {
     * Attempt to authenticate the user via CAS SSO
     */
     function authUser() {
-	global $sugar_config;
+	      global $sugar_config;
         phpCAS::setDebug();
         phpCAS::client(CAS_VERSION_2_0, $sugar_config['cas']['hostname'], $sugar_config['cas']['port'], $sugar_config['cas']['uri'], $sugar_config['cas']['changeSessionID']);
         phpCAS::setNoCasServerValidation();
@@ -48,7 +48,7 @@ class CASAuthenticateUser extends SugarAuthenticateUser {
             $user_name = phpCAS::getUser();
 
 	    $dbresult = $GLOBALS['db']->query("SELECT id, status FROM users WHERE user_name='" . $user_name . "' AND deleted = 0");			
-            //user already exists use this oe
+            // User already exists use this one
             if($row = $GLOBALS['db']->fetchByAssoc($dbresult)){
                 if($row['status'] != 'Inactive')
                     return $this->loadUserOnSession($row['id']);
