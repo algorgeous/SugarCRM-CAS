@@ -42,6 +42,21 @@ your CAS server.
     'port' => 443,
     'uri' => 'cas',
     'changeSessionID' => FALSE,
+    'createUser' => TRUE,
+    'updateUser' => TRUE,
+    'attrs_map' => array (
+      'mail' => 'email1',
+      'name' => 'full_name',
+      'lastname' => 'last_name',
+      'firstname' => 'first_name',
+    ),
+    'default_attrs' => array (
+      'is_admin' => 0,
+    ),
+    'default_prefs' => array (
+      'timezone' => 'Europe/Paris',
+      'ut' => 1,
+    )
   ),
 </pre>
 
