@@ -42,6 +42,9 @@ your CAS server.
     'port' => 443,
     'uri' => 'cas',
     'changeSessionID' => FALSE,
+    'proxies' => array(
+      'https://proxy-cas.example.com',
+    ),
   ),
 </pre>
 
