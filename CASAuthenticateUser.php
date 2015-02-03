@@ -40,6 +40,9 @@ class CASAuthenticateUser extends SugarAuthenticateUser {
 	      global $sugar_config;
         phpCAS::setDebug();
         phpCAS::client(CAS_VERSION_2_0, $sugar_config['cas']['hostname'], $sugar_config['cas']['port'], $sugar_config['cas']['uri'], $sugar_config['cas']['changeSessionID']);
+        if ((!empty($sugar_config['cas']['proxies'])) && (is_array($sugar_config['cas']['proxies']))) {
+          phpCAS::allowProxyChain(new CAS_ProxyChain($sugar_config['cas']['proxies']));
+        }
         phpCAS::setNoCasServerValidation();
         phpCAS::forceAuthentication();
         $authenticated = phpCAS::isAuthenticated();
