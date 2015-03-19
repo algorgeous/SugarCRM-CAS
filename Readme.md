@@ -5,7 +5,7 @@ Original credit goes to David Burke
 (http://davidmburke.com/2011/01/27/cas-in-sugarcrm/) who provided the original
 CASAuthenticate class files.
 
-Forked from algorgeous repo (https://github.com/algorgeous/SugarCRM-CAS).
+Forked from Alfred Bacon's repo (https://github.com/algorgeous/SugarCRM-CAS).
 
 This is a class for SugarCRM (http://sugarcrm.com) that allows you to
 authenticate with a CAS server.
@@ -54,7 +54,7 @@ your CAS server.
 License
 -------
 
-Copyright 2012 Alfred Bacon
+Copyright 2015 gcoop - Cooperativa de Software Libre
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
