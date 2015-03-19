@@ -45,6 +45,7 @@ your CAS server.
     'proxies' => array(
       'https://proxy-cas.example.com',
     ),
+    'logout_return_url' => 'http://sugar.url/',
   ),
 </pre>
 
