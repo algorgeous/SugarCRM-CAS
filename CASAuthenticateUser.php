@@ -1,6 +1,6 @@
 <?php
 
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+if (!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 require_once('modules/Users/authentication/LDAPAuthenticate/LDAPConfigs/default.php');
 require_once('modules/Users/authentication/SugarAuthenticate/SugarAuthenticateUser.php');
@@ -24,11 +24,11 @@ class CASAuthenticateUser extends SugarAuthenticateUser {
      * @return boolean
      */
      function loadUserOnLogin() {
-        $name=$this->authUser();
-        if(empty($name)){
+        $name = $this->authUser();
+        if (empty($name)) {
             return false;
         }
-        else{
+        else {
             return true;
         }
      } //end loadUserOnlogin()
@@ -52,8 +52,8 @@ class CASAuthenticateUser extends SugarAuthenticateUser {
 
 	    $dbresult = $GLOBALS['db']->query("SELECT id, status FROM users WHERE user_name='" . $user_name . "' AND deleted = 0");			
             // User already exists use this one
-            if($row = $GLOBALS['db']->fetchByAssoc($dbresult)){
-                if($row['status'] != 'Inactive')
+            if ($row = $GLOBALS['db']->fetchByAssoc($dbresult)) {
+                if ($row['status'] != 'Inactive')
                     return $this->loadUserOnSession($row['id']);
                 else
                     return '';
