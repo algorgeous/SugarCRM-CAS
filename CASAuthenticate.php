@@ -98,7 +98,13 @@ class CASAuthenticate extends SugarAuthenticate
         global $sugar_config;
         phpCAS::client(CAS_VERSION_2_0, $sugar_config['cas']['hostname'], $sugar_config['cas']['port'], $sugar_config['cas']['uri'], $sugar_config['cas']['changeSessionID']);
         phpCAS::setNoCasServerValidation();
-        phpCAS::logout();
+        $params = array();
+        if (!empty($sugar_config['cas']['logout_return_url'])) {
+            $params = array(
+                'url' => $sugar_config['cas']['logout_return_url'],
+            );
+        }
+        phpCAS::logout($params);
     }
 
 } //end CASAuthenticate class

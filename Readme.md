@@ -5,6 +5,8 @@ Original credit goes to David Burke
 (http://davidmburke.com/2011/01/27/cas-in-sugarcrm/) who provided the original
 CASAuthenticate class files.
 
+Forked from Alfred Bacon's repo (https://github.com/algorgeous/SugarCRM-CAS).
+
 This is a class for SugarCRM (http://sugarcrm.com) that allows you to
 authenticate with a CAS server.
 
@@ -22,7 +24,7 @@ Installation
 
 1. Place the files into modules/Users/authentication/CASAuthenticate directory.
 
-    git clone git://github.com/algorgeous/SugarCRM-CAS.git modules/Users/authentication/CASAuthenticate
+    git clone git://github.com/csegarra/SugarCRM-CAS.git modules/Users/authentication/CASAuthenticate
 
 2. Edit the config.php file
 
@@ -45,13 +47,14 @@ your CAS server.
     'proxies' => array(
       'https://proxy-cas.example.com',
     ),
+    'logout_return_url' => 'http://sugar.url/',
   ),
 </pre>
 
 License
 -------
 
-Copyright 2012 Alfred Bacon
+Copyright 2015 gcoop - Cooperativa de Software Libre
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
